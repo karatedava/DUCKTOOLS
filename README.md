@@ -1,9 +1,10 @@
 # DUCKTOOLS
 
 ## Overview
+![ICON](./page_graphics/DUCKTOOLS_icon.png)
 **DUCKTOOLS** is a toolbox for in-silico cultivation of duckweed plants, developed by the [iGEM BRNO team](https://teams.igem.org/5642) for the [iGEM competition](https://competition.igem.org).
 
-![GeneralScheme of entire workflow](./images/scheme_general.png)
+![GeneralScheme of entire workflow](./page_graphics/scheme_general.png)
 
 This toolbox enables quick and cost-effective design of duckweed cultivation at any scale, from small laboratory experiments to large-scale industrial production. Users can choose from provided configurations (including a general-purpose one) or customize the toolbox for specific duckweed varieties or other plants and environmental conditions.
 
@@ -33,6 +34,9 @@ The DUCKTOOLS workflow is simple and user-friendly, guiding users through the pr
 
 ## Instalation
 TODO description
+### access to other sources:
+- **Interactive Notebook**: limited functionality, ready to use immediatelly [NOTEBOOK](link)
+- **Web App**: full functionality, friendly user interface [WEBAPP](link)
 
 ## How to run
 TODO description
