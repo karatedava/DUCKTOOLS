@@ -1,7 +1,8 @@
 # DUCKTOOLS
 
 ## Overview
-![ICON](./page_graphics/DUCKTOOLS_icon.png)
+<img src="./page_graphics/DUCKTOOLS_icon.png" alt="ICON" width="100" height="100">
+
 **DUCKTOOLS** is a toolbox for in-silico cultivation of duckweed plants, developed by the [iGEM BRNO team](https://teams.igem.org/5642) for the [iGEM competition](https://competition.igem.org).
 
 ![GeneralScheme of entire workflow](./page_graphics/scheme_general.png)
@@ -63,11 +64,11 @@ The configuration file is a critical component of DUCKTOOLS. It is a simple JSON
 The simulator is the component, which runs the in-silico simulations. Currently we have two independet (based on completely different data) and strucuturally different (mathematical model and AI predictor) simulator models.
 
 ### Growth Modeler
-![Growth Modeler Scheme](./images/scheme_GM.png)
+![Growth Modeler Scheme](./page_graphics/scheme_GM.png)
 TODO description
 
 ### Yield Predictor
-![Yield Predictor Scheme](./images/scheme_YP.png)
+![Yield Predictor Scheme](./page_graphics/scheme_YP.png)
 TODO description
 
 ## Optimization
