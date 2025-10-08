@@ -3,7 +3,7 @@
 ## Overview
 
 <p align="center">
-  <img src="./page_graphics/LOGO.png" alt="DUCKTOOLS Logo" width="150" height="150">
+  <img src="./page_graphics/DUCKTOOLS_icon.png" alt="DUCKTOOLS Logo" width="150" height="150">
 </p>
 
 **DUCKTOOLS** is a versatile toolbox for in-silico cultivation of duckweed plants, developed by the [iGEM BRNO team](https://teams.igem.org/5642) for the [iGEM competition](https://competition.igem.org).
