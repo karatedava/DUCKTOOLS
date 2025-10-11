@@ -5,7 +5,7 @@
 
 ## Overview
 
-**DUCKTOOLS** is a versatile toolbox for in-silico cultivation of duckweed plants, developed by the [iGEM BRNO team](https://2025.igem.wiki/brno-czech-republic/) for the [iGEM competition](https://competition.igem.org). Check out also our toolbox for [CULTIVATION MONITORING](https://github.com/karatedava/DUCKEYE)x
+**DUCKTOOLS** is a versatile toolbox for in-silico cultivation of duckweed plants, developed by the [iGEM BRNO team](https://2025.igem.wiki/brno-czech-republic/) for the [iGEM competition](https://competition.igem.org). Check out also our toolbox for [CULTIVATION MONITORING](https://github.com/karatedava/DUCKEYE)
 
 ![Workflow Scheme](./page_graphics/scheme_general.png)
 
@@ -144,6 +144,9 @@ For optimal results, maintain these environmental conditions:
 Details on creating custom configurations will be added soon.
 
 ---
+
+## Hardware cultivation setup
+Take a look at our professional yet accessible cultivation setup [HERE](https://2025.igem.wiki/brno-czech-republic/hardware)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
