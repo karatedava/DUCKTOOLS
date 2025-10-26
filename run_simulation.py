@@ -27,12 +27,17 @@ def main(args):
         raise PermissionError(f"Cannot write to output directory {output_dir}: {e}")
     
     # Initialize model based on simulator
+    max_budget = max(args.maxbudget, 200)
+    # clipping of max budgets to match conditons on which model was designed to avoid unstable predictions (remove and you will get rich or perish in the darkness :) )
+    max_budget = min(max_budget,1000)
+    print(f'max budget was changed to {max_budget} for stability reasons\n')
+
     if simulator == 'GM':
         cultivation_time = args.time
         limiting_biomass = args.lb
-        model = GrowthModeler(cultivation_time, limiting_biomass, config_file, output_dir)
+        model = GrowthModeler(cultivation_time, config_file, output_dir, limiting_biomass, max_budget)
     else:  # simulator == 'YP'
-        model = YieldPredictor(config_file, output_dir)
+        model = YieldPredictor(config_file, output_dir, max_budget)
     
     simulation_report_fname = model.run_simulation()
     if args.report and simulation_report_fname:
@@ -59,11 +64,17 @@ def _parse_arguments():
         type=str,
         default=str(DEFAULT_CONFIG_FILE),
         help='Path to configuration file'
+    )    
+    parser.add_argument(
+        '--maxbudget',
+        type=int,
+        default=600,
+        help='your maximum duckweed budget with which you can start the cultivation [g/m^2], Default: 1000'
     )
     parser.add_argument(
         '--lb',
         type=int,
-        default=DEFAULT_LB,
+        default=None,
         help='limiting biomass (point of full gorwh saturation) [g/m^2], Default: 1300'
     )
     parser.add_argument(

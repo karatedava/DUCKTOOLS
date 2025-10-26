@@ -61,7 +61,7 @@ To set up DUCKTOOLS locally, follow these steps:
    ```
 
 ### Web Application
-No installation required! Access DUCKTOOLS' full functionality via our mobile-optimized web application with camera support:  
+No installation required! Access 'DUCKTOOLS' full functionality via our mobile-optimized web application:  
 👉 **[Web App](https://malleably-unhabituated-kristin.ngrok-free.dev)**
 
 ---
@@ -91,6 +91,7 @@ Customize simulations with these parameters:
 | `--lb`          | Limiting biomass (g/m²)                                  | `1300` (default, experimentally measured) |
 | `--report`      | Generate a graphical report                              | `True` (default)                    |
 | `--output_dir`  | Output directory for results                             | `data` (default)                    |
+| `--maxbudget`  | your maximum duckweed budget with which you can initiate cultivation (g/m²), it is recommended to stay in the range of <200 - 1000>                  | `600` (default)                    |
 
 **Example Command:**
 ```bash
@@ -131,7 +132,7 @@ A machine learning-based predictor for estimating cultivation yields.
 
 ## Cultivation Conditions
 For optimal results, maintain these environmental conditions:
-- **Temperature**: 21–25°C
+- **Temperature**: 23–28°C
 - **Photoperiod**: 16-hour light / 8-hour dark cycle
 - **Light Intensity**: ~200 µmol/m²/s
 
@@ -141,8 +142,32 @@ For optimal results, maintain these environmental conditions:
 ---
 
 ## Optimization
+
+To tailor the model to your specific setup (e.g., environmental conditions, growth medium, or duckweed species), you can generate a custom configuration based on your harvesting experiments.
+
+### Preparing Your Data
+In the `optimization_data` folder, you'll find a template JSON file that outlines how to structure your data for model tuning. Each "run" in the JSON corresponds to a single harvesting experiment, with the following key fields:
+- **hp**: Harvesting period (time between harvests).
+- **hr**: Harvesting ratio (proportion of biomass removed).
+- **data**: Measured biomass left in the cultivation tray after each harvest. The first value should represent the initial biomass at the start of cultivation.
+
+**Note**: The number of runs is flexible. You can use a single run, but including multiple runs with diverse `hp` and `hr` values will improve the model's precision.
+
+### Running the Optimization
+Once your JSON file is ready:
+1. Place it in the `optimization_data` directory.
+2. Run the following command to generate your custom configuration:
+
+```bash
+python run_optimization.py --optimfile yourfile.json --configname configname.json --lb limiting_biomass (optional)
+
+---
+
+## Future Plans
 *Work in progress!*  
-Details on creating custom configurations will be added soon.
+Add scaling via environmental factors
+- this will allow to design effective cultivation even if optimal conditions are (for some valid reason) not reachable
+- this will include controls over temperature, photoperiod and some nutrients in medium
 
 ---
 

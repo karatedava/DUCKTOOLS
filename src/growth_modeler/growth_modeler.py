@@ -9,12 +9,15 @@ from src.simulator import Simulator
 
 class GrowthModeler(Simulator):
 
-    def __init__(self, cultivation_time:int, limiting_biomass:int, config_path:Path, data_dir:Path):
+    def __init__(self, cultivation_time:int, config_path:Path, data_dir:Path, limiting_biomass:int = None, max_w0_budget:int = 1000):
 
-        super().__init__(config_path, data_dir)
+        super().__init__(config_path, data_dir, max_w0_budget)
 
+        # set cultivation time and limiting biomass
         self.cultivation_time = cultivation_time
-        self.lb = limiting_biomass
+
+        if limiting_biomass is not None:
+            self.lb = limiting_biomass
 
     def run_simulation(self) -> Path:
 
@@ -23,9 +26,9 @@ class GrowthModeler(Simulator):
         - returns path to report file for further statistical analysis
         """
 
+        # standardized naming format so user can know which output files belong to which parameter settings
         fname = f'GM_ct.{self.cultivation_time}.WL.{self.lb}.gc.{self.parameters['growth_const']}'
         filepath = self.data_dir / fname
-
         header = 'HP\tHR\tIDENS\tHARVEST\n'
         report = header
 
@@ -72,7 +75,7 @@ class GrowthModeler(Simulator):
         harvest_times = []
         storage = 0.0
 
-        eff_gr = self._effective_gr_()
+        eff_gr = self._effective_gr_() # scaled initial growth rate with 'plant specific' constant
         next_harvest_time = HP
         Biomass = W0
         for t in times:
@@ -88,7 +91,7 @@ class GrowthModeler(Simulator):
             Biomass += dW
             biomass_values.append(Biomass)
         
-        # harvest all what is left 
+        # harvest all what is left at the end of cultivation
         storage += Biomass
 
         biomass_df = pd.DataFrame({
@@ -103,6 +106,11 @@ class GrowthModeler(Simulator):
         return storage, biomass_df, harvest_df
     
     def _dW_(self, eff_gr, Biomass):
+
+        """
+        computes change in biomass
+        - uses effective growth rate, current biomass and limiting biomass
+        """
 
         dt = self.parameters['integration_step']
         WL = self.lb
