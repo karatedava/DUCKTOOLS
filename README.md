@@ -159,6 +159,7 @@ Once your JSON file is ready:
 
 ```bash
 python run_optimization.py --optimfile yourfile.json --configname configname.json --lb limiting_biomass (optional)
+```
 
 ---
 
@@ -173,8 +174,8 @@ Add scaling via environmental factors
 ## Hardware cultivation setup
 Take a look at our professional yet accessible cultivation setup [HERE](https://2025.igem.wiki/brno-czech-republic/hardware)
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contact
 For questions or support, contact the [iGEM BRNO team](https://2025.igem.wiki/brno-czech-republic/) or open an issue on this repository.
+
+## License
+This project is licensed under the [MIT License](LICENSE).
